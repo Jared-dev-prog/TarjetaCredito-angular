@@ -1,0 +1,107 @@
+<div>
+  <h1 class="text-center text-xl uppercase text-gray-500 font-bold">
+    Create Card
+  </h1>
+  <form [formGroup]="form" (ngSubmit)="createCard()" class="mt-5">
+    <div class="relative mb-6">
+      <div
+        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+      >
+        <i
+          class="fa-solid fa-user"
+          [class.green-icon]="this.form.get('titular')?.valid"
+          [class.red-icon]="
+            this.form.get('titular')?.invalid &&
+            this.form.get('titular')?.touched
+          "
+        ></i>
+      </div>
+      <input
+        type="text"
+        id="titular"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Titular"
+        formControlName="titular"
+      />
+    </div>
+
+    <div class="relative mb-6">
+      <div
+        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+      >
+        <i
+          class="fa-solid fa-credit-card"
+          [class.green-icon]="this.form.get('numberCard')?.valid"
+          [class.red-icon]="
+            this.form.get('numberCard')?.invalid &&
+            this.form.get('numberCard')?.touched
+          "
+        ></i>
+      </div>
+      <input
+        type="text"
+        id="number"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Card number"
+        maxlength="16"
+        formControlName="numberCard"
+      />
+    </div>
+
+    <div class="flex gap-x-5 m-0">
+      <div class="relative mb-6">
+        <div
+          class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+        >
+          <i
+            class="fa-solid fa-calendar"
+            [class.green-icon]="this.form.get('expirationDate')?.valid"
+            [class.red-icon]="
+              this.form.get('expirationDate')?.invalid &&
+              this.form.get('expirationDate')?.touched
+            "
+          ></i>
+        </div>
+        <input
+          type="text"
+          id="date"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="MM/YY"
+          formControlName="expirationDate"
+          maxlength="5"
+        />
+      </div>
+
+      <div class="relative mb-6">
+        <div
+          class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+        >
+          <i
+            class="fa-solid fa-key"
+            [class.green-icon]="this.form.get('cvv')?.valid"
+            [class.red-icon]="
+              this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched
+            "
+          ></i>
+        </div>
+        <input
+          type="password"
+          id="cvv"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="CVV"
+          formControlName="cvv"
+          maxlength="3"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-end m-0">
+      <button
+        type="submit"
+        class="bg-blue-500 m-0 py-2 px-5 rounded-md hover:bg-blue-700 text-gray-100 font-semibold text-md"
+      >
+        Accept
+      </button>
+    </div>
+  </form>
+</div>
